@@ -9,29 +9,70 @@
     <meta name="keywords" content="bio fertilizer, organic farming, sustainable agriculture, pesticides, minerals" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
     <title>Besticides Minerals Private Limited</title>
 </head>
 
 <body class="flex min-h-screen flex-col bg-gray-100 font-sans text-gray-800">
     <!--  Start of Navigation Bar -->
-    <nav class="fixed top-0 z-10 w-full bg-white shadow">
+    <!-- Start of Navigation Bar -->
+    <nav class="fixed top-0 z-50 w-full bg-white shadow-md">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 justify-between">
+            <div class="flex h-16 items-center justify-between">
                 <div class="flex items-center">
-                    <a href="#home" class="text-2xl font-bold text-green-700 no-underline">Besticides Minerals Private
+                    <a href="#" class="text-2xl font-bold text-green-700 no-underline">Besticides Minerals Private
                         Limited</a>
                 </div>
+                <!-- Desktop Navigation Links -->
                 <div class="hidden space-x-4 md:flex">
-                    <a href="#home" class="nav-link p-4 text-gray-600 hover:text-red-800">Home</a>
-                    <a href="#about" class="nav-link p-4 text-gray-600 hover:text-red-800">About Us</a>
-                    <a href="#products" class="nav-link p-4 text-gray-600 hover:text-red-800">Products</a>
-                    <a href="#certifications" class="nav-link p-4 text-gray-600 hover:text-red-800"
-                        data-page="certifications">Certifications</a>
+                    <a href="#home" data-target="home"
+                        class="nav-link p-4 text-gray-600 hover:text-green-700 transition duration-200">Home</a>
+                    <a href="#about" data-target="about"
+                        class="nav-link p-4 text-gray-600 hover:text-green-700 transition duration-200">About Us</a>
+                    <a href="#products" data-target="products"
+                        class="nav-link p-4 text-gray-600 hover:text-green-700 transition duration-200">Products</a>
+                    <a href="#certifications" data-target="certifications"
+                        class="nav-link p-4 text-gray-600 hover:text-green-700 transition duration-200">Certifications</a>
+                </div>
+
+                <!-- Mobile Hamburger Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="menu-button" type="button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-200"
+                        aria-controls="mobile-menu" aria-expanded="false">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile Menu, show/hide based on menu state -->
+        <div class="md:hidden" id="mobile-menu" style="display:none;">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" data-target="home"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-100">Home</a>
+                <a href="#about" data-target="about"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-100">About
+                    Us</a>
+                <a href="#products" data-target="products"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-100">Products</a>
+                <a href="#certifications" data-target="certifications"
+                    class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:bg-green-100">Certifications</a>
+            </div>
+        </div>
     </nav>
+    <!-- End of Navigation Bar -->
     <!--  End of Navigation Bar -->
 
     <main class="mt-20 flex-grow">
@@ -365,7 +406,7 @@
                   href="ecogrow.html"
                   class="inline-block rounded-md bg-green-600 px-4 py-2 text-white transition duration-300 hover:bg-green-700"
                   >Learn More</a-->
-                            >
+
                         </div>
                     </div>
                     <!-- Product Card 2: Bio-Stimulants -->
@@ -756,16 +797,72 @@
         </section>
         <!-- End of Certifications Page Content -->
     </main>
-    <!-- Footer -->
-    <footer class="bg-gray-800 py-4 text-white">
-        <div class="container mx-auto px-4 text-center">
-            <p>
-                &copy; 2025 Besticides Minerals Private Limited. All rights reserved.
-            </p>
-            <p>Email: besticidesminerals@gmail.com | Phone: +91 xxxxxxxxxx</p>
+    <!-- Start of Footer -->
+    <footer class="mt-auto bg-green-800 text-white p-6 md:p-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contact Us</h3>
+                    <p class="text-sm">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Address: 292-1&2 Sanagapadu, NTR Dist Road,
+                        Anasagaram, Nandigama, Andhra Pradesh 521185
+                    </p>
+                    <p class="text-sm mt-2">
+                        <i class="fas fa-phone mr-2"></i> Phone: +91 xxxxxxxxxx
+                    </p>
+                    <p class="text-sm mt-2">
+                        <i class="fas fa-envelope mr-2"></i> Email: besticidesminerals@gmail.com
+                    </p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#home" data-target="home"
+                                class="text-white hover:text-green-300 transition duration-200">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about" data-target="about"
+                                class="text-white hover:text-green-300 transition duration-200">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#products" data-target="products"
+                                class="text-white hover:text-green-300 transition duration-200">Products</a>
+                        </li>
+                        <li>
+                            <a href="#certifications" data-target="certifications"
+                                class="text-white hover:text-green-300 transition duration-200">Certifications</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="#" class="text-white hover:text-green-300 transition duration-200">
+                            <i class="fab fa-facebook-f fa-2x"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-300 transition duration-200">
+                            <i class="fab fa-x-twitter fa-2x"></i>
+                        </a>
+                        <a href="#" class="text-white hover:text-green-300 transition duration-200">
+                            <i class="fab fa-linkedin-in fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center border-t border-green-700 pt-6">
+                <p class="text-sm">
+                    &copy; 2025 Besticides Minerals Private Limited. All rights reserved.
+                </p>
+            </div>
         </div>
     </footer>
-    <!-- JavaScript file -->
+    <!-- End of Footer -->
     <script src="script.js"></script>
 </body>
 
