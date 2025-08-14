@@ -2,993 +2,1249 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Organic fertilizers and sustainable farming solutions from Besticides Minerals Private Limited." />
-    <meta name="keywords" content="bio fertilizer, organic farming, sustainable agriculture, pesticides, minerals" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Besticides Minerals Private Limited | Sustainable Agriculture</title>
+  <meta name="description"
+    content="Organic fertilizers and sustainable farming solutions from Besticides Minerals Private Limited." />
+  <meta name="keywords" content="bio fertilizer, organic farming, sustainable agriculture, pesticides, minerals" />
+  <meta name="robots" content="index,follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .page-content {
+      display: none;
+    }
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    .page-content.active {
+      display: block;
+    }
 
-    <style>
-        /* Custom styles for a smoother experience */
-        html {
-            scroll-behavior: smooth;
-        }
+    /* Navigation mobile menu hidden by default */
+    #mobile-menu {
+      display: none;
+    }
 
-        body {
-            font-family: "Inter", sans-serif;
-        }
+    #mobile-menu.active {
+      display: block;
+      /* Show the menu when it has the 'active' class */
+    }
 
-        .page-content {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
+    /* General body and font */
+    body {
+      background-color: #f1f1f1;
+      background-image:
+        linear-gradient(to right, #ddd 1px, transparent 1px),
+        linear-gradient(to bottom, #ddd 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
 
-        .page-content.active {
-            display: block;
-        }
+    /* Glass effect cards */
+    .glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 40px 0 rgba(76, 175, 80, 0.07),
+        0 2px 10px 0 rgba(173, 193, 175, 0.1);
+    }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
+    /* Animations */
+    .fade-in-up {
+      animation: fadeInUp 1s cubic-bezier(0.23, 1.09, 0.91, 0.99) both;
+    }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(32px);
+      }
 
-        .nav-link.active {
-            border-bottom: 2px solid #10b981;
-            color: #10b981;
-            font-weight: 600;
-        }
-    </style>
-    <title>Besticides Minerals Private Limited</title>
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Navigation active link style */
+    .nav-link.active,
+    .mobile-nav-link.active {
+      color: #4CAF50;
+      font-weight: 700;
+      border-bottom: 2px solid #4CAF50;
+    }
+
+    /* Call-to-action button style */
+    .cta-btn {
+      background: linear-gradient(90deg, #4CAF50 10%, #66BB6A 100%);
+      color: #fff;
+      font-weight: 700;
+      transition: box-shadow 0.22s;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:focus {
+      box-shadow: 0 8px 32px 0 rgba(76, 175, 80, 0.4);
+      outline: none;
+    }
+
+    /* Card hover effect */
+    .card-hover:hover {
+      transform: scale(1.025) translateY(-2px);
+      box-shadow: 0 8px 28px 0 rgba(76, 175, 80, 0.3);
+    }
+
+    /* Focus outlines for accessibility */
+    a:focus,
+    button:focus {
+      outline: 2px solid #4CAF50;
+      outline-offset: 2px;
+    }
+
+    /* Navigation mobile menu hidden by default */
+    #mobile-menu {
+      display: none;
+    }
+
+    /* Carousel styling */
+    .carousel-item {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.6s ease-in-out;
+      object-fit: cover;
+      border-radius: 0.75rem;
+    }
+
+    .carousel-item.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      box-shadow: 0 10px 15px -3px rgba(76, 175, 80, 0.25),
+        0 4px 6px -4px rgba(76, 175, 80, 0.2);
+    }
+
+    .dot {
+      cursor: pointer;
+    }
+
+    .carousel-btn {
+      background-color: #4CAF50;
+      color: #fff;
+      width: 48px;
+      /* Set a fixed width */
+      height: 48px;
+      /* Set a fixed height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      /* Makes the button perfectly circular */
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.22s, box-shadow 0.22s;
+    }
+
+    .carousel-btn:hover {
+      background-color: #45a049;
+      /* Darker green on hover */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-btn:focus {
+      outline: 2px solid #4CAF50;
+      outline-offset: 2px;
+    }
+
+    /* Modal backdrop */
+    .modal-backdrop {
+      background-color: rgba(30, 71, 30, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Scrollbar for certificates modal */
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+      background-color: #4CAF50;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 
-<body class="flex min-h-screen flex-col bg-gray-100 font-sans text-gray-800">
-    <!-- Start of Navigation Bar -->
-    <nav class="fixed top-0 z-50 w-full bg-white shadow-md">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="flex h-16 items-center justify-between">
-                <div class="flex items-center">
-                    <img src="Besticides Minerals Logo.jpg" alt="Logo" class="h-24 w-24 rounded-full object-contain">
-                    <a href="#" class="text-2xl font-bold text-green-700 no-underline">Besticides Minerals Private
-                        Limited</a>
-                </div>
-                <!-- Desktop Navigation Links -->
-                <div class="hidden space-x-4 md:flex">
-                    <a href="#home" data-target="home"
-                        class="nav-link p-4 text-gray-600 transition duration-200 hover:text-green-700">Home</a>
-                    <a href="#about" data-target="about"
-                        class="nav-link p-4 text-gray-600 transition duration-200 hover:text-green-700">About Us</a>
-                    <a href="#products" data-target="products"
-                        class="nav-link p-4 text-gray-600 transition duration-200 hover:text-green-700">Products</a>
-                    <a href="#testimonials" data-target="testimonials"
-                        class="nav-link p-4 text-gray-600 transition duration-200 hover:text-green-700">Testimonials</a>
-                </div>
-
-                <!-- Mobile Hamburger Menu Button -->
-                <div class="flex md:hidden">
-                    <button id="menu-button" type="button"
-                        class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-200 hover:bg-green-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                        aria-controls="mobile-menu" aria-expanded="false">
-                        <span class="sr-only">Open main menu</span>
-                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                </div>
-            </div>
+<body class="flex flex-col min-h-screen text-gray-900">
+  <nav class="fixed top-0 inset-x-0 z-50 bg-white bg-opacity-80 glass shadow-xl">
+    <div class="mx-auto max-w-7xl px-6 sm:px-8 md:px-10">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-4">
+          <img src="Besticides Minerals Logo.jpg" alt="Besticides Logo"
+            class="h-20 w-20 rounded-full object-contain shadow-md" />
+          <a href="#" class="text-2xl font-extrabold text-green-600 hover:text-green-700 transition">Besticides
+            Minerals Pvt Ltd</a>
         </div>
-
-        <!-- Mobile Menu, show/hide based on menu state -->
-        <div class="md:hidden" id="mobile-menu" style="display:none;">
-            <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
-                <a href="#home" data-target="home"
-                    class="mobile-nav-link block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-green-100">Home</a>
-                <a href="#about" data-target="about"
-                    class="mobile-nav-link block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-green-100">About
-                    Us</a>
-                <a href="#products" data-target="products"
-                    class="mobile-nav-link block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-green-100">Products</a>
-                <a href="#testimonials" data-target="testimonials"
-                    class="mobile-nav-link block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-green-100">Testimonials</a>
-            </div>
+        <div class="hidden md:flex space-x-8 text-lg font-semibold">
+          <a href="#home" data-target="home" class="nav-link text-gray-700 hover:text-green-600 transition">Home</a>
+          <a href="#about" data-target="about" class="nav-link text-gray-700 hover:text-green-600 transition">About
+            Us</a>
+          <a href="#products" data-target="products"
+            class="nav-link text-gray-700 hover:text-green-600 transition">Products</a>
+          <a href="#testimonials" data-target="testimonials"
+            class="nav-link text-gray-700 hover:text-green-600 transition">Testimonials</a>
+          <a href="#farmereducation" data-target="farmereducation"
+            class="nav-link text-gray-700 hover:text-green-600 transition hidden">Farmer education</a>
         </div>
-    </nav>
-    <!-- End of Navigation Bar -->
-
-    <main class="mt-20 flex-grow">
-        <!-- Start of Home Page -->
-        <section id="home" class="page-content">
-            <div
-                class="container mx-auto grid grid-cols-1 items-center gap-10 rounded-lg bg-white p-6 shadow-md md:grid-cols-2 lg:px-8 lg:py-12">
-                <!-- Image -->
-                <div class="flex justify-center">
-                    <img src="crop.png" alt="Our Farm" class="w-full max-w-md rounded-lg shadow-md"
-                        onerror="this.onerror=null;this.src='https://placehold.co/600x400/28a745/ffffff?text=Image+Not+Found';" />
-                </div>
-
-                <!-- Text -->
-                <div>
-                    <h1 class="mb-4 text-4xl font-bold text-green-700">
-                        Growing a Sustainable Future
-                    </h1>
-                    <p class="text-lg text-gray-700">
-                        Besticides Minerals Private Limited is a pioneering company
-                        dedicated to sustainable agriculture through the manufacture and
-                        distribution of organic fertilizers, bio-stimulants, and
-                        bio-fertilizers. Founded in 2014, the company is committed to
-                        advancing chemical-free farming practices that promote soil,
-                        plant, and environmental health across India.
-                    </p>
-                </div>
-            </div>
-
-            <div class="container mx-auto px-6 py-16">
-                <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
-                    <!-- Our Vision -->
-                    <div class="rounded-xl bg-white p-8 shadow-xl transition duration-300 hover:shadow-2xl">
-                        <h2 class="mb-4 text-2xl font-semibold text-green-700">
-                            Our Vision
-                        </h2>
-                        <p class="leading-relaxed text-gray-700">
-                            At Besticides Minerals, our Mission is to make ethical & Planet friendly organic food
-                            available to everyone. At Besticides, we are dedicated to fostering a global shift towards
-                            sustainable organic fertilizers, Bio fertilizers, Bio stimulants, Bio pesticides, Organic
-                            acids, chelated minerals choices. Our mission extends beyond mere availability, aiming to
-                            educate and empower communities about the benefits of choosing organic options. By
-                            prioritizing environmental responsibility, we strive to create a healthier and more
-                            sustainable future for all.
-                        </p>
-                    </div>
-
-                    <!-- Core Values -->
-                    <div class="rounded-xl bg-white p-8 shadow-xl transition duration-300 hover:shadow-2xl">
-                        <h2 class="mb-4 text-2xl font-semibold text-green-700">
-                            Core Values Driving Our Success
-                        </h2>
-                        <ul class="list-inside list-disc space-y-2 leading-relaxed text-gray-700">
-                            <li>
-                                <strong>Sustainability:</strong> Prioritizing environmental
-                                stewardship to protect resources.
-                            </li>
-                            <li>
-                                <strong>Innovation:</strong> Continuous R&D investment for
-                                next-gen agriculture solutions.
-                            </li>
-                            <li>
-                                <strong>Integrity:</strong> Transparency, honesty, and ethics
-                                in all dealings.
-                            </li>
-                            <li>
-                                <strong>Customer Focus:</strong> Enhancing farmer yield and
-                                livelihoods.
-                            </li>
-                            <li>
-                                <strong>Excellence in Manufacturing:</strong> High-quality,
-                                effective inputs.
-                            </li>
-                            <li>
-                                <strong>Community Commitment:</strong> Awareness and education
-                                in rural regions.
-                            </li>
-                            <li>
-                                <strong>Affordability & Value Creation:</strong> Accessible
-                                pricing, maximum ROI.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End of Home Page -->
-
-        <!-- Start of About Page -->
-        <section id="about" class="page-content">
-            <div class="container mx-auto px-6 py-10">
-                <h1 class="mb-10 text-center text-4xl font-bold text-gray-800">
-                    About Besticides Minerals Private Limited
-                </h1>
-
-                <!-- Company Story & Mission -->
-                <div class="mb-12 rounded-lg bg-white p-8 shadow-lg">
-                    <h2 class="mb-4 text-center text-3xl font-semibold text-gray-700">
-                        Our Story & Mission
-                    </h2>
-                    <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-                        <div>
-                            <p class="mb-4 text-lg text-gray-700">
-                                Besticides Minerals Private Limited, founded in 2014 by Mr. Duggineni Bhaskara Rao, a
-                                seasoned Geophysics Scientist, is dedicated to revolutionizing agriculture. Our mission
-                                is to educate, inspire, and empower farmers across India to transition to organic,
-                                sustainable farming by providing high-quality, cost-effective solutions. We aim to
-                                foster a systemic shift toward greener practices that benefit farmers, consumers, and
-                                the environment alike.
-                            </p>
-                        </div>
-                        <div class="flex justify-center md:justify-end">
-                            <img src="https://placehold.co/600x400/6c757d/ffffff?text=Our+Founder" alt="Our Founder"
-                                class="w-full max-w-md rounded-lg shadow-md" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Infrastructure, Production & Distribution -->
-                <div class="mb-12 rounded-lg bg-white p-8 shadow-lg">
-                    <h2 class="mb-4 text-center text-3xl font-semibold text-gray-700">
-                        Infrastructure, Production & Distribution
-                    </h2>
-                    <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-                        <div class="order-2 md:order-1 flex justify-center md:justify-start">
-                            <img src="https://placehold.co/600x400/6c757d/ffffff?text=Our+Factory" alt="Our Factory"
-                                class="w-full max-w-md rounded-lg shadow-md" />
-                        </div>
-                        <div class="order-1 md:order-2">
-                            <p class="mb-4 text-lg text-gray-700">
-                                Our state-of-the-art manufacturing facility in Nandigama, Andhra Pradesh, is equipped
-                                with advanced machinery to produce high-quality organic fertilizers, bio-stimulants, and
-                                pesticides. Our current capacity is approximately <strong>500 tons per month</strong>,
-                                allowing us to meet the growing demand for our products efficiently.
-                            </p>
-                            <p class=" text-lg text-gray-700">
-                                We've established an <strong>extensive dealership network</strong> spanning key
-                                agricultural states in India. This robust distribution channel ensures our products are
-                                accessible to farmers in both urban and remote areas, supported by a dedicated logistics
-                                team that guarantees timely delivery and customer responsiveness.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Research, Quality & Lab -->
-                <div class="mb-12 rounded-lg bg-white p-8 shadow-lg">
-                    <h2 class="mb-4 text-center text-3xl font-semibold text-gray-700">
-                        Research & Development and Quality Control
-                    </h2>
-                    <div class="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
-                        <div>
-                            <p class="mb-4 text-gray-700 text-lg">
-                                At Besticides Minerals, innovation and quality are at the core of what we do. Our
-                                in-house <strong>R&D lab</strong> is dedicated to continuous research, development, and
-                                testing of new formulations. We work to create innovative and effective products that
-                                are specifically tailored to the needs of Indian soil and crops.
-                            </p>
-                            <p class="text-gray-700 text-lg">
-                                We adhere to stringent <strong>quality control measures</strong> at every stage of
-                                production, from raw material sourcing to the final product. Our lab meticulously tests
-                                each batch to ensure it meets our high standards for efficacy, purity, and safety. This
-                                commitment to quality is what earns the trust of our farmers.
-                            </p>
-                        </div>
-                        <div class="flex justify-center md:justify-end">
-                            <img src="https://placehold.co/600x400/6c757d/ffffff?text=Our+Lab" alt="Our Lab"
-                                class="w-full max-w-md rounded-lg shadow-md" />
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Exclusive Products -->
-                <div class="mb-12 rounded-lg bg-white p-8 shadow-lg">
-                    <h2 class="mb-6 text-center text-3xl font-semibold text-gray-700">
-                        Our Exclusive Product Line
-                    </h2>
-                    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        <!-- Product Card 1: Product1 -->
-                        <div class="flex flex-col rounded-lg border border-green-200 bg-gray-50 p-6 shadow-sm">
-                            <h3 class="mb-2 text-xl font-bold text-green-700">Product1</h3>
-                            <p class="mb-4 text-lg text-gray-600">A powerful bio-stimulant designed to enhance plant
-                                growth and nutrient absorption. It improves crop resilience against environmental
-                                stress, leading to stronger, more vibrant plants and significantly higher yields.</p>
-                        </div>
-
-                        <!-- Product Card 2: Product2 -->
-                        <div class="flex flex-col rounded-lg border border-green-200 bg-gray-50 p-6 shadow-sm">
-                            <h3 class="mb-2 text-xl font-bold text-green-700">Product2</h3>
-                            <p class="mb-4 text-lg text-gray-600">A specialized bio-fertilizer containing a rich blend
-                                of beneficial microorganisms. Its primary function is to improve soil microbial activity
-                                and overall health, making the soil more fertile and productive for long-term use.</p>
-                        </div>
-
-                        <!-- Product Card 3: Product3 -->
-                        <div class="flex flex-col rounded-lg border border-green-200 bg-gray-50 p-6 shadow-sm">
-                            <h3 class="mb-2 text-xl font-bold text-green-700">Product3</h3>
-                            <p class="mb-4 text-lg text-gray-600">Our flagship bio-pesticide, offering natural and
-                                effective protection against common pests and fungal diseases. Product3 helps farmers
-                                protect their crops without relying on harmful chemical pesticides, ensuring a healthier
-                                harvest and environment.</p>
-                        </div>
-                    </div>
-                    <!-- New button to navigate to products -->
-                    <div class="mt-8 text-center">
-                        <a href="#products" data-target="products"
-                            class="inline-block rounded-lg bg-green-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition duration-200 hover:bg-green-700">
-                            See All Products
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End of About Page -->
-
-        <!-- Start of Products Page -->
-        <section id="products" class="page-content">
-            <h1 class="mb-10 text-center text-4xl font-bold text-gray-800">
-                Our Innovative Products & Services
-            </h1>
-            <p class="mx-auto mb-8 max-w-3xl text-center text-lg text-gray-700">
-                Besticides Minerals specializes in manufacturing and processing a
-                diverse range of organic agricultural inputs designed to improve soil
-                fertility, enhance plant growth, and protect crops naturally. Our
-                products cater to individual farmers managing small holdings as well
-                as large-scale corporate farms, providing scalable and effective
-                solutions that improve yield quality and sustainability.
-            </p>
-            <!-- Brochure View Button -->
-            <div class="flex justify-center mb-8">
-                <a href="Certificates/Brochure Final Convert.pdf" target="_blank"
-                    class="flex items-center rounded-lg bg-green-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition duration-200 hover:bg-green-700">
-                    <i class="fas fa-eye mr-2"></i>
-                    View Product Brochure
-                </a>
-            </div>
-
-            <!-- Bio-Fertilizers Section -->
-            <div class="mb-12">
-                <h2 class="mb-6 border-b-2 border-green-300 pb-2 text-3xl font-semibold text-green-700">
-                    Bio-Fertilizers & Bio-Stimulants
-                </h2>
-                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                    <!-- Product Card 1: Organic Fertilizers -->
-                    <div class="product-card overflow-hidden rounded-lg border border-green-200 bg-white shadow-lg">
-                        <img src="https://placehold.co/300x200/28a745/ffffff?text=Organic+Fertilizer"
-                            alt="Organic Fertilizer" class="h-48 w-full object-cover" />
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">
-                                Premium Organic Fertilizers
-                            </h3>
-                            <p class="mb-4 text-lg text-gray-600">
-                                Designed to improve soil fertility and enrich soil nutrients
-                                naturally without chemical residues, promoting healthier and
-                                more productive crops.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Product Card 2: Bio-Stimulants -->
-                    <div class="product-card overflow-hidden rounded-lg border border-green-200 bg-white shadow-lg">
-                        <img src="https://placehold.co/300x200/28a745/ffffff?text=Bio-Stimulant" alt="Bio-Stimulant"
-                            class="h-48 w-full object-cover" />
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">
-                                Advanced Bio-Stimulants
-                            </h3>
-                            <p class="mb-4 text-lg text-gray-600">
-                                Enhance plant growth, nutrient absorption, and resilience
-                                against environmental stresses, leading to stronger, more
-                                vibrant plants.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Product Card 3: Bio-Fertilizers -->
-                    <div class="product-card overflow-hidden rounded-lg border border-green-200 bg-white shadow-lg">
-                        <img src="https://placehold.co/300x200/28a745/ffffff?text=Bio-Fertilizer" alt="Bio-Fertilizer"
-                            class="h-48 w-full object-cover" />
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">
-                                Microbial Bio-Fertilizers
-                            </h3>
-                            <p class="mb-4 text-lg text-gray-600">
-                                Containing beneficial microorganisms to significantly improve
-                                soil microbial activity and overall soil health, fostering a
-                                thriving ecosystem.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pesticides Section -->
-            <div>
-                <h2 class="mb-6 border-b-2 border-red-300 pb-2 text-3xl font-semibold text-red-700">
-                    Chelated Minerals & Allied Products
-                </h2>
-                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-10">
-                    <!-- Product Card 4: Chelated Minerals -->
-                    <div class="product-card overflow-hidden rounded-lg border border-red-200 bg-white shadow-lg">
-                        <img src="https://placehold.co/300x200/dc3545/ffffff?text=Chelated+Minerals"
-                            alt="Chelated Minerals" class="h-48 w-full object-cover" />
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">
-                                Chelated Minerals for Growth
-                            </h3>
-                            <p class="mb-4 text-lg text-gray-600">
-                                Specialized chelated minerals designed to improve plant growth
-                                and significantly boost crop yields by ensuring optimal
-                                nutrient availability.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Product Card 5: Bio-Pesticides/Fungicides -->
-                    <div class="product-card overflow-hidden rounded-lg border border-red-200 bg-white shadow-lg">
-                        <img src="https://placehold.co/300x200/dc3545/ffffff?text=Bio-Pesticide" alt="Bio-Pesticide"
-                            class="h-48 w-full object-cover" />
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">
-                                Bio-Pesticides & Fungicides
-                            </h3>
-                            <p class="mb-4 text-lg text-gray-600">
-                                Effective, organic solutions to protect crops from pests and
-                                fungal diseases, promoting plant health and resilience
-                                naturally without harmful chemicals.
-                            </p>
-                        </div>
-                    </div>
-                    <!-- Product Card 6: Amino Acids -->
-                    <div class="product-card overflow-hidden rounded-lg border border-red-200 bg-white shadow-lg">
-                        <img src="https://placehold.co/300x200/dc3545/ffffff?text=Amino+Acids" alt="Amino Acids"
-                            class="h-48 w-full object-cover" />
-                        <div class="p-6">
-                            <h3 class="mb-2 text-xl font-semibold text-gray-800">
-                                Essential Amino Acids
-                            </h3>
-                            <p class="mb-4 text-lg text-gray-600">
-                                Allied products like Amino Acids to support crop metabolism
-                                and vitality, ensuring plants have the building blocks for
-                                optimal growth and stress recovery.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End of Products Page -->
-
-        <!-- Start of Testimonials Page -->
-        <section id="testimonials" class="page-content">
-            <div class="container mx-auto px-6 py-10">
-                <h1 class="mb-10 text-center text-4xl font-bold text-gray-800">Voices from the Field</h1>
-                <p class="mx-auto mb-12 max-w-3xl text-center text-lg text-gray-600">
-                    Hear directly from the farmers who have seen the benefits of our sustainable agricultural solutions.
-                </p>
-
-                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    <!-- Testimonial Card 1 -->
-                    <div class="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-lg">
-                        <img src="Avatar.png" alt="Default Avatar"
-                            class="mb-4 h-20 w-20 rounded-full border-4 border-green-200 object-cover">
-                        <p class="mb-4 text-lg italic text-gray-700">
-                            "Using Besticides Minerals' products has completely transformed my crop yield. My plants are
-                            healthier, and I've seen a noticeable improvement in my soil quality. I'm proud to be
-                            farming
-                            sustainably now."
-                        </p>
-                        <h3 class="text-xl font-bold text-green-800">- Rajesh Kumar</h3>
-                        <p class="text-sm text-gray-500">Vijayawada, Andhra Pradesh</p>
-                    </div>
-
-                    <!-- Testimonial Card 2 -->
-                    <div class="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-lg">
-                        <img src="Avatar.png" alt="Farmer"
-                            class="mb-4 h-20 w-20 rounded-full border-4 border-green-200 object-cover">
-                        <p class="mb-4 text-lg italic text-gray-700">
-                            "The bio-fertilizers from this company are amazing. I've been able to reduce my chemical
-                            usage
-                            significantly, which has not only helped the environment but also saved me money. Highly
-                            recommended!"
-                        </p>
-                        <h3 class="text-xl font-bold text-green-800">- Sunita Reddy</h3>
-                        <p class="text-sm text-gray-500">Hyderabad, Telangana</p>
-                    </div>
-
-                    <!-- Testimonial Card 3 -->
-                    <div class="flex flex-col items-center rounded-xl bg-white p-6 text-center shadow-lg">
-                        <img src="Avatar.png" alt="Farmer"
-                            class="mb-4 h-20 w-20 rounded-full border-4 border-green-200 object-cover">
-                        <p class="mb-4 text-lg italic text-gray-700">
-                            "The team at Besticides Minerals is incredibly knowledgeable and supportive. They helped me
-                            choose the right products for my specific crops, and the results have been fantastic. My
-                            produce is
-                            healthier and tastes better!"
-                        </p>
-                        <h3 class="text-xl font-bold text-green-800">- Mohan Rao</h3>
-                        <p class="text-sm text-gray-500">Guntur, Andhra Pradesh</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End of Testimonials Page -->
-
-    </main>
-    <!-- Start of Footer -->
-    <footer class="mt-auto rounded-t-lg bg-green-800 p-6 text-white md:p-8">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 gap-8 text-center md:grid-cols-3 md:text-left">
-                <!-- Contact Info -->
-                <div>
-                    <h3 class="mb-4 text-xl font-semibold">Contact Us</h3>
-                    <p class="text-sm">
-                        <i class="fas fa-map-marker-alt mr-2"></i> Address: 292-1&2 Sanagapadu, NTR Dist Road,
-                        Anasagaram, Nandigama, Andhra Pradesh 521185
-                    </p>
-                    <p class="mt-2 text-sm">
-                        <i class="fas fa-phone mr-2"></i> Phone: +91 xxxxxxxxxx
-                    </p>
-                    <p class="mt-2 text-sm">
-                        <i class="fas fa-envelope mr-2"></i> Email: besticidesminerals@gmail.com
-                    </p>
-                </div>
-
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="mb-4 text-xl font-semibold">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><button data-modal-target="turnoverModal" class="hover:underline">Turnover Details</button>
-                        </li>
-                        <li><button data-modal-target="certificatesModal" class="hover:underline">Certificates &
-                                Licenses</button></li>
-                        <li><a href="farmers.html" class="hover:underline">Farmer Education</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-8 border-t border-green-700 pt-6 text-center">
-                <p class="text-sm">
-                    &copy; 2025 Besticides Minerals Private Limited. All rights reserved.
-                </p>
-            </div>
+        <div class="md:hidden">
+          <button id="menu-button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false"
+            class="inline-flex items-center justify-center rounded-md p-2 text-green-600 hover:text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-600 focus:ring-offset-2 transition">
+            <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
-    </footer>
-    <!-- End of Footer -->
-
-    <!-- Turnover Details Modal -->
-    <div id="turnoverModal"
-        class="fixed inset-0 z-50 flex hidden items-center justify-center overflow-auto bg-black bg-opacity-50">
-        <div class="relative m-4 w-full max-w-lg rounded-lg bg-white p-8 shadow-xl">
-            <h2 class="mb-4 text-center text-3xl font-semibold text-gray-700">
-                Financial Performance Overview
-            </h2>
-            <p class="mb-4 text-center text-gray-700">
-                Besticides Minerals has experienced strong financial growth over
-                recent fiscal years, reflecting market acceptance and gradual
-                expansion:
-            </p>
-            <ul class="mx-auto max-w-lg list-inside list-disc text-gray-700">
-                <li>FY 2023-24 revenue: Rs. 1.8 Crores</li>
-                <li>FY 2023-24 provisional revenue: Rs. 2.2 Crores</li>
-                <li>
-                    Current credit facility liability (as of 31/03/2025): Rs. 3 Crores
-                </li>
-                <li>Factory asset valuation: Rs. 22 Crores</li>
-            </ul>
-            <p class="mt-4 text-center text-gray-700">
-                This financial trajectory highlights increasing demand for organic
-                farming inputs and effective company management aimed at sustainable
-                profitability. The company is well-positioned to leverage growth
-                opportunities in India's expanding organic sector.
-            </p>
-            <div class="mt-6 flex justify-end">
-                <button data-modal-close="turnoverModal"
-                    class="rounded-lg bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300">Close</button>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <!-- Certificates & Licenses Modal -->
-    <div id="certificatesModal"
-        class="fixed inset-0 z-50 flex hidden items-center justify-center overflow-auto bg-black bg-opacity-50">
-        <div class="relative m-4 w-full max-w-lg rounded-lg bg-white p-8 shadow-xl">
-            <h3 class="mb-4 text-center text-2xl font-bold text-gray-800">Certificates & Licenses</h3>
-            <!-- Scrollable Cards Container -->
-            <div class="max-h-[70vh] space-y-6 overflow-y-auto pr-2">
+    <div id="mobile-menu" class="md:hidden">
+      <div class="px-4 pt-4 pb-6 space-y-2 text-base font-medium text-gray-700">
+        <a href="#home" data-target="home"
+          class="mobile-nav-link block rounded-md px-3 py-2 hover:bg-green-100 hover:text-green-700 transition">Home</a>
+        <a href="#about" data-target="about"
+          class="mobile-nav-link block rounded-md px-3 py-2 hover:bg-green-100 hover:text-green-700 transition">About
+          Us</a>
+        <a href="#products" data-target="products"
+          class="mobile-nav-link block rounded-md px-3 py-2 hover:bg-green-100 hover:text-green-700 transition">Products</a>
+        <a href="#testimonials" data-target="testimonials"
+          class="mobile-nav-link block rounded-md px-3 py-2 hover:bg-green-100 hover:text-green-700 transition">Testimonials</a>
+      </div>
+    </div>
+  </nav>
+  <main class="flex-grow mt-24 px-6 sm:px-10 max-w-7xl mx-auto">
+    <section id="home" class="page-content active fade-in-up">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center glass p-10 rounded-xl shadow-lg sm:p-14">
+        <div class="flex justify-center">
+          <img src="crop.png" alt="Our Farm" class="rounded-xl shadow-lg max-w-full h-auto object-cover max-h-96"
+            loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/647de6/ffffff?text=Image+Not+Found';" />
+        </div>
+        <div>
+          <h1 class="text-4xl font-extrabold text-green-700 mb-4 leading-tight">
+            Growing a Sustainable Future
+          </h1>
+          <p class="text-lg text-gray-700 leading-relaxed">
+            Besticides Minerals Private Limited is a pioneering company
+            dedicated to sustainable agriculture through the manufacture and
+            distribution of organic fertilizers, bio-stimulants, and
+            bio-fertilizers. Founded in 2014, the company is committed to
+            advancing chemical-free farming practices that promote soil,
+            plant, and environmental health across India.
+          </p>
+        </div>
+      </div>
 
-                <!-- Certification Card 1 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">GST Certificate AP</h3>
-                    <!-- <p class="mb-4 text-center text-sm text-gray-600">A brief description of what this certificate
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <article class="glass p-8 rounded-xl shadow-xl card-hover transition duration-300">
+          <h2 class="text-2xl font-bold text-green-700 mb-4">Our Vision</h2>
+          <p class="leading-relaxed text-gray-700">
+            At Besticides Minerals, our mission is to make ethical &
+            planet-friendly organic food available to everyone. We dedicate
+            ourselves to fostering a global shift towards sustainable organic
+            fertilizers, bio fertilizers, bio stimulants, bio pesticides,
+            organic acids, and chelated minerals. Our mission extends beyond
+            availability — educating and empowering communities about organic
+            benefits for a healthier future.
+          </p>
+        </article>
+
+        <article class="glass p-8 rounded-xl shadow-xl card-hover transition duration-300">
+          <h2 class="text-2xl font-bold text-green-700 mb-4">
+            Core Values Driving Our Success
+          </h2>
+          <ul class="list-disc list-inside text-gray-700 space-y-2 leading-relaxed">
+            <li>
+              <strong>Sustainability:</strong> Prioritizing environmental
+              stewardship to protect resources.
+            </li>
+            <li>
+              <strong>Innovation:</strong> Continuous R&D investment for
+              next-gen agriculture solutions.
+            </li>
+            <li>
+              <strong>Integrity:</strong> Transparency, honesty, and ethics in
+              all dealings.
+            </li>
+            <li>
+              <strong>Customer Focus:</strong> Enhancing farmer yield and
+              livelihoods.
+            </li>
+            <li>
+              <strong>Excellence in Manufacturing:</strong> High-quality,
+              effective inputs.
+            </li>
+            <li>
+              <strong>Community Commitment:</strong> Awareness and education
+              in rural regions.
+            </li>
+            <li>
+              <strong>Affordability & Value Creation:</strong> Accessible
+              pricing, maximum ROI.
+            </li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="page-content fade-in-up">
+      <h1 class="text-4xl font-extrabold text-green-900 text-center mb-10">
+        About Besticides Minerals Private Limited
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 glass p-10 rounded-xl shadow-lg mb-16">
+        <div class="text-gray-700 text-lg leading-relaxed">
+          <h2 class="text-3xl font-bold text-green-800 mb-6 text-center md:text-left">
+            Our Story & Mission
+          </h2>
+          <p class="mb-4">
+            Founded in 2014 by Mr. Duggineni Bhaskara Rao, a seasoned
+            Geophysics Scientist, Besticides Minerals Private Limited aims to
+            revolutionize agriculture by educating and empowering farmers
+            across India. We provide high-quality, cost-effective organic
+            solutions to foster greener farming practices benefiting farmers,
+            consumers, and the environment alike.
+          </p>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img src="https://placehold.co/600x400/647de6/ffffff?text=Our+Founder" alt="Our Founder"
+            class="rounded-xl shadow-lg max-w-full h-auto" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="glass p-10 rounded-xl shadow-lg mb-16">
+        <h2 class="text-3xl font-bold text-green-800 text-center mb-10">
+          Manufacturing, Production & Distribution
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div>
+            <p class="text-gray-700 text-lg mb-6">
+              Our manufacturing facility in Nandigama, Andhra Pradesh,
+              equipped with advanced machinery, produces 500 tons/month of
+              organic fertilizers and pesticides to meet growing demand
+              effectively.
+            </p>
+            <p class="text-gray-700 text-lg">
+              We've built a strong dealership network across major
+              agricultural states in India, ensuring product availability and
+              timely delivery to both urban and remote farmers.
+            </p>
+          </div>
+          <div class="carousel-app max-w-full mx-auto">
+            <div class="carousel-container">
+              <img src="Images/Infra/1.jpg" alt="Manufacturing Image 1" class="carousel-item active" loading="lazy" />
+              <img src="Images/Infra/2.jpg" alt="Manufacturing Image 2" class="carousel-item" loading="lazy" />
+              <img src="Images/Infra/3.jpg" alt="Manufacturing Image 3" class="carousel-item" loading="lazy" />
+              <img src="Images/Infra/4.jpg" alt="Manufacturing Image 4" class="carousel-item" loading="lazy" />
+              <img src="Images/Infra/5.jpg" alt="Manufacturing Image 5" class="carousel-item" loading="lazy" />
+            </div>
+            <div class="flex justify-center items-center gap-4 p-4 bg-gray-50 rounded-b-xl shadow-inner select-none">
+              <button class="carousel-btn prev-btn" aria-label="Previous Image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="dots-container flex gap-2"></div>
+              <button class="carousel-btn next-btn" aria-label="Next Image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass p-10 rounded-xl shadow-lg mb-16">
+        <h2 class="text-3xl font-bold text-green-800 text-center mb-10">
+          Research & Development and Quality Control
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          <div class="text-gray-700 text-lg leading-relaxed">
+            <p class="mb-4">
+              Innovation and quality define us. Our in-house R&D lab conducts
+              continuous research, development, and testing to create
+              effective products tailored for Indian soil and crops.
+            </p>
+            <p>
+              Strict quality control upon every batch ensures efficacy,
+              purity, safety, and trust from our farmers.
+            </p>
+          </div>
+          <div class="carousel-app max-w-full mx-auto">
+            <div class="carousel-container">
+              <img src="Images/lab/1.jpg" alt="Lab Image 1" class="carousel-item active" loading="lazy" />
+              <img src="Images/lab/2.jpg" alt="Lab Image 2" class="carousel-item" loading="lazy" />
+              <img src="Images/lab/3.jpg" alt="Lab Image 3" class="carousel-item" loading="lazy" />
+              <img src="Images/lab/4.jpg" alt="Lab Image 4" class="carousel-item" loading="lazy" />
+              <img src="Images/lab/5.jpg" alt="Lab Image 5" class="carousel-item" loading="lazy" />
+            </div>
+            <div class="flex justify-center items-center gap-4 p-4 bg-gray-50 rounded-b-xl shadow-inner select-none">
+              <button class="carousel-btn prev-btn" aria-label="Previous Image">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <div class="dots-container flex gap-2"></div>
+              <button class="carousel-btn next-btn" aria-label="Next Image">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mb-12 rounded-lg bg-white p-8 shadow-lg">
+        <h2 class="mb-6 text-center text-3xl font-semibold text-gray-700">
+          Our Exclusive Product Line
+        </h2>
+        <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Product Card 1: Product1 -->
+          <div class="flex flex-col rounded-lg border border-green-200 bg-gray-50 p-6 shadow-sm">
+            <h3 class="mb-2 text-xl font-bold text-green-700">Product1</h3>
+            <p class="mb-4 text-lg text-gray-600">
+              A powerful bio-stimulant designed to enhance plant growth and
+              nutrient absorption. It improves crop resilience against
+              environmental stress, leading to stronger, more vibrant plants
+              and significantly higher yields.
+            </p>
+          </div>
+
+          <!-- Product Card 2: Product2 -->
+          <div class="flex flex-col rounded-lg border border-green-200 bg-gray-50 p-6 shadow-sm">
+            <h3 class="mb-2 text-xl font-bold text-green-700">Product2</h3>
+            <p class="mb-4 text-lg text-gray-600">
+              A specialized bio-fertilizer containing a rich blend of
+              beneficial microorganisms. Its primary function is to improve
+              soil microbial activity and overall health, making the soil more
+              fertile and productive for long-term use.
+            </p>
+          </div>
+
+          <!-- Product Card 3: Product3 -->
+          <div class="flex flex-col rounded-lg border border-green-200 bg-gray-50 p-6 shadow-sm">
+            <h3 class="mb-2 text-xl font-bold text-green-700">Product3</h3>
+            <p class="mb-4 text-lg text-gray-600">
+              Our flagship bio-pesticide, offering natural and effective
+              protection against common pests and fungal diseases. Product3
+              helps farmers protect their crops without relying on harmful
+              chemical pesticides, ensuring a healthier harvest and
+              environment.
+            </p>
+          </div>
+        </div>
+        <!-- New button to navigate to products -->
+        <div class="mt-8 text-center">
+          <a href="#products" data-target="products"
+            class="inline-block rounded-lg bg-green-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition duration-200 hover:bg-green-700">
+            See All Products
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="page-content fade-in-up">
+      <h1 class="text-4xl font-extrabold text-green-700 text-center mb-12">
+        Our Innovative Products & Services
+      </h1>
+      <p class="max-w-3xl mx-auto mb-12 text-center text-gray-700 text-lg leading-relaxed">
+        We manufacture a diverse range of organic agricultural inputs designed
+        to improve soil fertility, enhance plant growth, and protect crops
+        naturally. Our solutions fit individual smallholder farmers to
+        large-scale corporate farms, improving yield quality sustainably.
+      </p>
+
+      <div class="mb-16 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-semibold text-green-700 border-b-2 border-green-300 pb-2 mb-10 max-w-max mx-auto">
+          Bio-Fertilizers & Bio-Stimulants
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article class="glass p-6 rounded-2xl shadow-xl card-hover transition duration-300 bg-white">
+            <img src="https://placehold.co/300x200/647de6/ffffff?text=Organic+Fertilizer" alt="Organic Fertilizer"
+              class="w-full h-48 object-cover rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-xl font-semibold text-green-900 mb-3">
+              Premium Organic Fertilizers
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Improve soil fertility naturally without chemical residues for
+              healthier, productive crops.
+            </p>
+          </article>
+          <article class="glass p-6 rounded-2xl shadow-xl card-hover transition duration-300 bg-white">
+            <img src="https://placehold.co/300x200/647de6/ffffff?text=Bio-Stimulant" alt="Bio-Stimulant"
+              class="w-full h-48 object-cover rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-xl font-semibold text-green-900 mb-3">
+              Advanced Bio-Stimulants
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Enhance plant growth, nutrient absorption and stress resilience
+              for stronger, more vibrant plants.
+            </p>
+          </article>
+          <article class="glass p-6 rounded-2xl shadow-xl card-hover transition duration-300 bg-white">
+            <img src="https://placehold.co/300x200/647de6/ffffff?text=Bio-Fertilizer" alt="Bio-Fertilizer"
+              class="w-full h-48 object-cover rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-xl font-semibold text-green-900 mb-3">
+              Microbial Bio-Fertilizers
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Boost soil microbial activity and soil health fostering a
+              thriving ecosystem.
+            </p>
+          </article>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-semibold text-green-900 border-b-2 border-green-300 pb-2 mb-10 max-w-max mx-auto">
+          Chelated Minerals & Allied Products
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+          <article class="glass p-6 rounded-2xl shadow-xl card-hover transition duration-300 bg-white">
+            <img src="https://placehold.co/300x200/5359b8/ffffff?text=Chelated+Minerals" alt="Chelated Minerals"
+              class="w-full h-48 object-cover rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-xl font-semibold text-green-900 mb-3">
+              Chelated Minerals for Growth
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Specialized minerals designed to improve plant growth and boost
+              crop yields.
+            </p>
+          </article>
+          <article class="glass p-6 rounded-2xl shadow-xl card-hover transition duration-300 bg-white">
+            <img src="https://placehold.co/300x200/5359b8/ffffff?text=Bio-Pesticide" alt="Bio-Pesticide"
+              class="w-full h-48 object-cover rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-xl font-semibold text-green-900 mb-3">
+              Bio-Pesticides & Fungicides
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Organic crop protection without harmful chemicals, promoting
+              plant health.
+            </p>
+          </article>
+          <article class="glass p-6 rounded-2xl shadow-xl card-hover transition duration-300 bg-white">
+            <img src="https://placehold.co/300x200/5359b8/ffffff?text=Amino+Acids" alt="Amino Acids"
+              class="w-full h-48 object-cover rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-xl font-semibold text-green-900 mb-3">
+              Essential Amino Acids
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Support crop metabolism and vitality ensuring optimal growth and
+              stress recovery.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="page-content fade-in-up">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <h1 class="text-4xl font-extrabold text-green-900 text-center mb-10">
+          Voices from the Field
+        </h1>
+        <p class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12">
+          Hear directly from farmers who have seen the benefits of our
+          sustainable agricultural solutions.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <blockquote
+            class="glass bg-white p-8 rounded-xl shadow-lg text-center flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="Avatar.png" alt="Rajesh Kumar" class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover"
+              loading="lazy" />
+            <p class="italic text-gray-700">
+              "Using Besticides Minerals' products has transformed my crop
+              yield. Healthier plants and better soil quality. Proud to farm
+              sustainably!"
+            </p>
+            <footer>
+              <p class="font-semibold text-green-700">- Rajesh Kumar</p>
+              <p class="text-sm text-gray-500">Vijayawada, Andhra Pradesh</p>
+            </footer>
+          </blockquote>
+
+          <blockquote
+            class="glass bg-white p-8 rounded-xl shadow-lg text-center flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="Avatar.png" alt="Sunita Reddy" class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover"
+              loading="lazy" />
+            <p class="italic text-gray-700">
+              "The bio-fertilizers reduced my chemical usage significantly,
+              saving money and protecting the environment. Highly
+              recommended!"
+            </p>
+            <footer>
+              <p class="font-semibold text-green-700">- Sunita Reddy</p>
+              <p class="text-sm text-gray-500">Hyderabad, Telangana</p>
+            </footer>
+          </blockquote>
+
+          <blockquote
+            class="glass bg-white p-8 rounded-xl shadow-lg text-center flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="Avatar.png" alt="Mohan Rao" class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover"
+              loading="lazy" />
+            <p class="italic text-gray-700">
+              "The team helped me pick the right products for my crops.
+              Fantastic results with healthier, better-tasting produce."
+            </p>
+            <footer>
+              <p class="font-semibold text-green-700">- Mohan Rao</p>
+              <p class="text-sm text-gray-500">Guntur, Andhra Pradesh</p>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- strt of farmereducation section -->
+    <section id="farmereducation" class="page-content fade-in-up">
+      <div class="max-w-7xl mx-auto px-6 py-10">
+        <h1 class="text-4xl font-extrabold text-green-900 text-center mb-10">
+          Farmer Education Hub
+        </h1>
+        <p class="max-w-3xl mx-auto text-center text-gray-700 text-lg mb-12">
+          Empowering farmers with knowledge. Explore our comprehensive resources,
+          guides, and best practices for sustainable agriculture.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <!-- Education Card 1: Soil Health -->
+          <div
+            class="glass bg-white p-8 rounded-xl shadow-lg flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="https://placehold.co/100x100/4CAF50/fff?text=Soil" alt="A handful of rich soil"
+              class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover" loading="lazy" />
+            <h3 class="font-semibold text-xl text-green-700">
+              Understanding Soil Health
+            </h3>
+            <p class="text-gray-700 text-center">
+              Learn the fundamentals of soil composition, nutrient
+              management, and how to improve your soil naturally.
+            </p>
+            <a href="#" class="cta-btn px-6 py-2 rounded-lg text-sm">Learn More</a>
+          </div>
+
+          <!-- Education Card 2: Pest Management -->
+          <div
+            class="glass bg-white p-8 rounded-xl shadow-lg flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="https://placehold.co/100x100/4CAF50/fff?text=Pest" alt="A hand protecting a plant"
+              class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover" loading="lazy" />
+            <h3 class="font-semibold text-xl text-green-700">
+              Integrated Pest Management
+            </h3>
+            <p class="text-gray-700 text-center">
+              Discover sustainable and organic methods to control pests and
+              diseases without harmful chemicals.
+            </p>
+            <a href="#" class="cta-btn px-6 py-2 rounded-lg text-sm">Learn More</a>
+          </div>
+
+          <!-- Education Card 3: Water Conservation -->
+          <div
+            class="glass bg-white p-8 rounded-xl shadow-lg flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="https://placehold.co/100x100/4CAF50/fff?text=Water" alt="A water drop on a leaf"
+              class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover" loading="lazy" />
+            <h3 class="font-semibold text-xl text-green-700">
+              Efficient Water Management
+            </h3>
+            <p class="text-gray-700 text-center">
+              Explore techniques for irrigation and water conservation to
+              maximize crop growth while minimizing waste.
+            </p>
+            <a href="#" class="cta-btn px-6 py-2 rounded-lg text-sm">Learn More</a>
+          </div>
+
+          <!-- Education Card 4: Crop Rotation -->
+          <div
+            class="glass bg-white p-8 rounded-xl shadow-lg flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="https://placehold.co/100x100/4CAF50/fff?text=Crop" alt="Different crops growing"
+              class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover" loading="lazy" />
+            <h3 class="font-semibold text-xl text-green-700">
+              The Power of Crop Rotation
+            </h3>
+            <p class="text-gray-700 text-center">
+              Find out how rotating your crops can boost soil fertility and
+              prevent pest buildup.
+            </p>
+            <a href="#" class="cta-btn px-6 py-2 rounded-lg text-sm">Learn More</a>
+          </div>
+
+          <!-- Education Card 5: Sustainable Farming -->
+          <div
+            class="glass bg-white p-8 rounded-xl shadow-lg flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="https://placehold.co/100x100/4CAF50/fff?text=Sustain" alt="A tree with healthy leaves"
+              class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover" loading="lazy" />
+            <h3 class="font-semibold text-xl text-green-700">
+              Sustainable Farming Guide
+            </h3>
+            <p class="text-gray-700 text-center">
+              A comprehensive guide to eco-friendly farming practices for
+              long-term productivity and environmental protection.
+            </p>
+            <a href="#" class="cta-btn px-6 py-2 rounded-lg text-sm">Learn More</a>
+          </div>
+
+          <!-- Education Card 6: Bio-fertilizers -->
+          <div
+            class="glass bg-white p-8 rounded-xl shadow-lg flex flex-col items-center space-y-4 card-hover transition duration-300">
+            <img src="https://placehold.co/100x100/4CAF50/fff?text=Fertilizer" alt="A hand sprinkling fertilizer"
+              class="w-20 h-20 rounded-full ring-4 ring-green-300 object-cover" loading="lazy" />
+            <h3 class="font-semibold text-xl text-green-700">
+              Benefits of Bio-fertilizers
+            </h3>
+            <p class="text-gray-700 text-center">
+              Learn how Besticides' bio-fertilizers enhance crop yield and
+              improve soil quality.
+            </p>
+            <a href="#" class="cta-btn px-6 py-2 rounded-lg text-sm">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of farmereducation section -->
+  </main>
+  <footer class="bg-gray-800 text-white p-10 pb-4 mt-10">
+    <div class="mx-auto px-6 sm:px-8 md:px-10 flex flex-col md:flex-row justify-between items-start mb-6">
+      <div class="mb-6 md:mb-0">
+        <h3 class="text-xl font-semibold mb-2">Contact Us</h3>
+        <address class="not-italic text-sm space-y-2">
+          <p>
+            <i class="fas fa-map-marker-alt mr-2"></i>292-1&2 Sanagapadu, NTR Dist Road, Anasagaram,
+            Nandigama, Andhra Pradesh 521185
+          </p>
+          <p><i class="fas fa-phone mr-2"></i>+91 xxxxxxxxxx</p>
+          <p>
+            <i class="fas fa-envelope mr-2"></i>besticidesminerals@gmail.com
+          </p>
+        </address>
+      </div>
+      <ul class="space-x-6 text-sm font-medium flex">
+        <li>
+          <button data-modal-target="turnoverModal" class="hover:text-green-300 focus:outline-none focus:ring-2">
+            Turnover Details
+          </button>
+        </li>
+        <li>
+          <button data-modal-target="certificatesModal" class="hover:text-green-300 focus:outline-none focus:ring-2">
+            Certificates & Licenses
+          </button>
+        </li>
+        <li>
+          <a href="#farmereducation" class="hover:text-green-300">Farmer Education</a>
+        </li>
+        <li>
+          <a href="Certificates/Brochure Final Convert.pdf" target="_blank" class="hover:text-green-300">
+            Product Brochure
+          </a>
+        </li>
+      </ul>
+    </div>
+    <p class="text-center text-xs mt-4">
+      &copy; 2025 Besticides Minerals Private Limited. All rights reserved.
+    </p>
+  </footer>
+  <div id="turnoverModal"
+    class="fixed inset-0 z-50 flex hidden items-center justify-center overflow-auto bg-black bg-opacity-50">
+    <div class="bg-white rounded-xl shadow-xl max-w-lg w-full p-8 relative max-h-[90vh] overflow-y-auto">
+      <h2 class="text-center font-extrabold text-3xl mb-6 text-green-900">
+        Financial Performance Overview
+      </h2>
+      <p class="text-green-900 mb-4 text-center">
+        Besticides Minerals has experienced strong financial growth over
+        recent fiscal years, reflecting market acceptance and gradual
+        expansion:
+      </p>
+      <ul class="list-disc list-inside text-green-900 max-w-md mx-auto space-y-2 mb-4">
+        <li>FY 2023-24 revenue: Rs. 1.8 Crores</li>
+        <li>FY 2023-24 provisional revenue: Rs. 2.2 Crores</li>
+        <li>
+          Current credit facility liability (as of 31/03/2025): Rs. 3 Crores
+        </li>
+        <li>Factory asset valuation: Rs. 22 Crores</li>
+      </ul>
+      <p class="text-center text-green-900">
+        This financial trajectory highlights increasing demand for organic
+        farming inputs and effective company management aimed at sustainable
+        profitability. The company is positioned to leverage growth
+        opportunities in India's expanding organic sector.
+      </p>
+      <div class="mt-8 flex justify-end">
+        <button data-modal-close="turnoverModal"
+          class="rounded-lg bg-green-100 px-4 py-2 font-semibold text-green-800 hover:bg-green-200 transition">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- certificatesModal -->
+  <div id="certificatesModal"
+    class="fixed inset-0 z-50 flex hidden items-center justify-center overflow-auto bg-black bg-opacity-50">
+    <div class="relative m-4 w-full max-w-lg rounded-lg bg-white p-8 shadow-xl">
+      <h3 class="mb-4 text-center text-2xl font-bold text-gray-800">Certificates & Licenses</h3>
+      <!-- Scrollable Cards Container -->
+      <div class="max-h-[70vh] space-y-6 overflow-y-auto pr-2">
+
+        <!-- Certification Card 1 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">GST Certificate AP</h3>
+          <!-- <p class="mb-4 text-center text-sm text-gray-600">A brief description of what this certificate
                         represents.</p> -->
-                    <a href="Certificates/besticides gst certificate.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 2 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800 text-center">LICENSE TO MANUFACTURE INSECTICIDES
-                    </h3>
-
-                    <a href="Certificates/Besticides Minerals Pvt Ltd - NTR Dist LICENSE TO MANUFACTURE INSECTICIDES.pdf"
-                        target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 3 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">GST Certificate TG</h3>
-
-                    <a href="Certificates/BMPL GST Certificate T G.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 4 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Pollution Control Certificate</h3>
-
-                    <a href="Certificates/CertiFicate - 2024-09-12T124349.907 pollutioncontrole.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 5 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Factory license</h3>
-
-                    <a href="Certificates/factory license(besticides).pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 6 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Manufacture Certificate</h3>
-
-                    <a href="Certificates/granules.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 7 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">ISO Certificate</h3>
-
-                    <a href="Certificates/ISO Certificate.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 8 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Labour license</h3>
-
-                    <a href="Certificates/labour license.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 9 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Chambers Of Commerce Certificate</h3>
-
-                    <a href="Certificates/Membership certificate-Besticides Minerals Private Limited.pdf"
-                        target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 10 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800 text-center">Neem 1500 ppm Certificate of
-                        Registration
-                    </h3>
-
-                    <a href="Certificates/Neem 1500 ppm.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 11 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800 text-center">Neem 3000 ppm Certificate of
-                        Registration
-                    </h3>
-
-                    <a href="Certificates/Neem 3000 ppm.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 12 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Packing License</h3>
-
-                    <a href="Certificates/packing license of metrology deprt.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 13 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Pollution Board Certificate Expansion</h3>
-
-                    <a href="Certificates/pollution board CertiFicate.expansion.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 14 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">Change Of Name Certificate</h3>
-
-                    <a href="Certificates/slc approvel letter of DIC name change.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-                <!-- Certification Card 15 -->
-                <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
-                    <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500 text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                        </svg>
-                    </div>
-                    <h3 class="mb-2 text-xl font-semibold text-gray-800">TELANGANA STATE MARKETING LICENCE, Form A2</h3>
-
-                    <a href="Certificates/TELANGANA STATE MARKETING LICENCE, Form A2.pdf" target="_blank"
-                        class="inline-block rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700">View
-                        Certificate</a>
-                </div>
-            </div>
-
-            <div class="mt-6 flex justify-end">
-                <button data-modal-close="certificatesModal"
-                    class="rounded-lg bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300">Close</button>
-            </div>
+          <a href="Certificates/besticides gst certificate.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
         </div>
+        <!-- Certification Card 2 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800 text-center">LICENSE TO MANUFACTURE INSECTICIDES
+          </h3>
+
+          <a href="Certificates/Besticides Minerals Pvt Ltd - NTR Dist LICENSE TO MANUFACTURE INSECTICIDES.pdf"
+            target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 3 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">GST Certificate TG</h3>
+
+          <a href="Certificates/BMPL GST Certificate T G.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 4 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Pollution Control Certificate</h3>
+
+          <a href="Certificates/CertiFicate - 2024-09-12T124349.907 pollutioncontrole.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 5 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Factory license</h3>
+
+          <a href="Certificates/factory license(besticides).pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 6 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Manufacture Certificate</h3>
+
+          <a href="Certificates/granules.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 7 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">ISO Certificate</h3>
+
+          <a href="Certificates/ISO Certificate.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 8 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Labour license</h3>
+
+          <a href="Certificates/labour license.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 9 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Chambers Of Commerce Certificate</h3>
+
+          <a href="Certificates/Membership certificate-Besticides Minerals Private Limited.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 10 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800 text-center">Neem 1500 ppm Certificate of
+            Registration
+          </h3>
+
+          <a href="Certificates/Neem 1500 ppm.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 11 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800 text-center">Neem 3000 ppm Certificate of
+            Registration
+          </h3>
+
+          <a href="Certificates/Neem 3000 ppm.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 12 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Packing License</h3>
+
+          <a href="Certificates/packing license of metrology deprt.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 13 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Pollution Board Certificate Expansion</h3>
+
+          <a href="Certificates/pollution board CertiFicate.expansion.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 14 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">Change Of Name Certificate</h3>
+
+          <a href="Certificates/slc approvel letter of DIC name change.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+        <!-- Certification Card 15 -->
+        <div class="flex flex-col items-center rounded-lg border border-gray-200 bg-white p-6 shadow-md">
+          <div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-green-500 text-white">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-8.63" />
+              <path d="M22 4L12 14.01l-3-3" />
+            </svg>
+          </div>
+          <h3 class="mb-2 text-xl font-semibold text-gray-800">TELANGANA STATE MARKETING LICENCE, Form A2</h3>
+
+          <a href="Certificates/TELANGANA STATE MARKETING LICENCE, Form A2.pdf" target="_blank"
+            class="inline-block rounded-md bg-green-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-green-700">View
+            Certificate</a>
+        </div>
+      </div>
+
+      <div class="mt-6 flex justify-end">
+        <button data-modal-close="certificatesModal"
+          class="rounded-lg bg-gray-200 px-4 py-2 text-gray-800 hover:bg-gray-300">Close</button>
+      </div>
     </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const navLinks = document.querySelectorAll(
+        ".nav-link, .mobile-nav-link, a[data-target]"
+      );
+      const pageContents = document.querySelectorAll(".page-content");
+      const menuButton = document.getElementById("menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      // Function to show the correct page and handle scrolling
+      function showPage(targetId) {
+        pageContents.forEach((section) => section.classList.remove("active"));
+        const activeSection = document.getElementById(targetId);
+        if (activeSection) {
+          activeSection.classList.add("active");
+          window.scrollTo({
+            top: activeSection.offsetTop - 72,
+            behavior: "smooth",
+          });
+        }
+      }
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            // Select all links that have a data-target attribute, including navigation and footer links
-            const navLinks = document.querySelectorAll(
-                ".nav-link, .mobile-nav-link, a[data-target]"
-            );
-            const pageContents = document.querySelectorAll(".page-content");
-            const menuButton = document.getElementById("menu-button");
-            const mobileMenu = document.getElementById("mobile-menu");
+      // Initialize page based on URL hash or default to #home
+      const initialHash = window.location.hash || "#home";
+      const initialTarget = initialHash.substring(1);
+      showPage(initialTarget);
+      navLinks.forEach((link) => {
+        if (link.dataset.target === initialTarget) {
+          link.classList.add("active");
+        }
+      });
 
-            // Function to show a specific page and hide others
-            const showPage = (targetId) => {
-                pageContents.forEach((section) => {
-                    section.classList.remove("active");
-                });
-                const activeSection = document.getElementById(targetId);
-                if (activeSection) {
-                    activeSection.classList.add("active");
-                    window.scrollTo({
-                        top: activeSection.offsetTop - 80,
-                        behavior: "smooth",
-                    });
-                }
-            };
+      // Handle navigation clicks
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.dataset.target;
+          history.pushState(null, "", `#${targetId}`);
 
-            // Set initial active link and page based on URL hash
-            const hash = window.location.hash || "#home";
-            const initialTarget = hash.substring(1); // Remove the '#'
-            showPage(initialTarget);
+          // Remove active class from all links and add to the correct ones
+          document
+            .querySelectorAll(".nav-link, .mobile-nav-link")
+            .forEach((nav) => nav.classList.remove("active"));
+          document
+            .querySelectorAll(`[data-target="${targetId}"]`)
+            .forEach((el) => el.classList.add("active"));
 
-            if (navLinks) {
-                navLinks.forEach((link) => {
-                    if (link.dataset.target === initialTarget) {
-                        link.classList.add("active");
-                    }
-                    link.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        const targetId = link.dataset.target;
+          showPage(targetId);
 
-                        // Update URL hash without page reload
-                        history.pushState(null, "", `#${targetId}`);
-
-                        // Remove active class from all links and add to clicked one
-                        navLinks.forEach((nav) => nav.classList.remove("active"));
-                        // Check if it's a mobile link or desktop link to add the class
-                        const correspondingLink = document.querySelector(
-                            `.nav-link[data-target="${targetId}"]`
-                        );
-                        const correspondingMobileLink = document.querySelector(
-                            `.mobile-nav-link[data-target="${targetId}"]`
-                        );
-                        if (correspondingLink) correspondingLink.classList.add("active");
-                        if (correspondingMobileLink)
-                            correspondingMobileLink.classList.add("active");
-
-                        // Show the corresponding page
-                        showPage(targetId);
-
-                        // Close the mobile menu if it's open
-                        if (mobileMenu) {
-                            mobileMenu.style.display = "none";
-                            menuButton.setAttribute("aria-expanded", "false");
-                        }
-                    });
-                });
-            }
-
-            // Handle the back/forward browser buttons
-            window.addEventListener("popstate", () => {
-                const newHash = window.location.hash || "#home";
-                const newTarget = newHash.substring(1);
-                showPage(newTarget);
-                if (navLinks) {
-                    navLinks.forEach((nav) => nav.classList.remove("active"));
-                    const correspondingLink = document.querySelector(
-                        `.nav-link[data-target="${newTarget}"]`
-                    );
-                    const correspondingMobileLink = document.querySelector(
-                        `.mobile-nav-link[data-target="${newTarget}"]`
-                    );
-                    if (correspondingLink) correspondingLink.classList.add("active");
-                    if (correspondingMobileLink)
-                        correspondingMobileLink.classList.add("active");
-                }
-            });
-
-            // Toggle mobile menu visibility
-            if (menuButton) {
-                menuButton.addEventListener("click", () => {
-                    const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
-                    menuButton.setAttribute("aria-expanded", !isExpanded);
-                    if (mobileMenu) {
-                        mobileMenu.style.display = isExpanded ? "none" : "block";
-                    }
-                });
-            }
-
-            // Initial setup: activate the home link and page if no hash is present
-            if (!window.location.hash) {
-                const homeNavLink = document.querySelector('.nav-link[data-target="home"]');
-                const homeMobileNavLink = document.querySelector(
-                    '.mobile-nav-link[data-target="home"]'
-                );
-                if (homeNavLink) {
-                    homeNavLink.classList.add("active");
-                }
-                if (homeMobileNavLink) {
-                    homeMobileNavLink.classList.add("active");
-                }
-            }
-
-            // --- Modal Functionality ---
-            // Function to open a modal
-            const openModal = (modalId) => {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.remove("hidden");
-                }
-            };
-
-            // Function to close a modal
-            const closeModal = (modalId) => {
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.classList.add("hidden");
-                }
-            };
-
-            // Event listeners for opening modals
-            document.querySelectorAll("[data-modal-target]").forEach((button) => {
-                button.addEventListener("click", () => {
-                    const modalId = button.getAttribute("data-modal-target");
-                    openModal(modalId);
-                });
-            });
-
-            // Event listeners for closing modals with buttons
-            document.querySelectorAll("[data-modal-close]").forEach((button) => {
-                button.addEventListener("click", () => {
-                    const modalId = button.getAttribute("data-modal-close");
-                    closeModal(modalId);
-                });
-            });
-
-            // Event listeners for closing modals by clicking outside the content
-            document.querySelectorAll('[id$="Modal"]').forEach((modal) => {
-                modal.addEventListener("click", (e) => {
-                    if (e.target === modal) {
-                        modal.classList.add("hidden");
-                    }
-                });
-            });
+          // Close mobile menu if open
+          if (mobileMenu && mobileMenu.classList.contains("active")) {
+            mobileMenu.classList.remove("active");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton
+              .querySelectorAll("svg")
+              .forEach((svg) => svg.classList.toggle("hidden"));
+          }
         });
-    </script>
+      });
+
+      // Handle back/forward browser navigation
+      window.addEventListener("popstate", () => {
+        const newHash = window.location.hash || "#home";
+        const newTarget = newHash.substring(1);
+        showPage(newTarget);
+
+        // Update active class for nav links
+        document
+          .querySelectorAll(".nav-link, .mobile-nav-link")
+          .forEach((nav) => nav.classList.remove("active"));
+        document
+          .querySelectorAll(`[data-target="${newTarget}"]`)
+          .forEach((el) => el.classList.add("active"));
+      });
+
+      // Mobile menu toggling
+      if (menuButton) {
+        menuButton.addEventListener("click", () => {
+          const expanded =
+            menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", !expanded);
+          if (mobileMenu) {
+            mobileMenu.classList.toggle("active");
+            // Toggle hamburger / close icons
+            menuButton
+              .querySelectorAll("svg")
+              .forEach((svg) => svg.classList.toggle("hidden"));
+          }
+        });
+      }
+
+      // Modal functionality
+      const openModal = (id) => {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.remove("hidden");
+          document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+        }
+      };
+      const closeModal = (id) => {
+        const modal = document.getElementById(id);
+        if (modal) {
+          modal.classList.add("hidden");
+          document.body.style.overflow = ""; // Restore scrolling
+        }
+      };
+      document.querySelectorAll("[data-modal-target]").forEach((button) => {
+        button.addEventListener("click", () => {
+          openModal(button.getAttribute("data-modal-target"));
+        });
+      });
+      document.querySelectorAll("[data-modal-close]").forEach((button) => {
+        button.addEventListener("click", () => {
+          closeModal(button.getAttribute("data-modal-close"));
+        });
+      });
+      document.querySelectorAll(".modal-backdrop").forEach((modal) => {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) {
+            closeModal(modal.id);
+          }
+        });
+      });
+
+      // Carousel Initialization
+      function initializeCarousel(carouselElement) {
+        const carouselImages =
+          carouselElement.querySelectorAll(".carousel-item");
+        const prevBtn = carouselElement.querySelector(".prev-btn");
+        const nextBtn = carouselElement.querySelector(".next-btn");
+        const dotsContainer =
+          carouselElement.querySelector(".dots-container");
+        let currentIndex = 0;
+        let autoplayInterval;
+        const updateCarousel = () => {
+          carouselImages.forEach((img, i) => {
+            img.classList.toggle("active", i === currentIndex);
+          });
+          dotsContainer.querySelectorAll(".dot").forEach((dot, i) => {
+            dot.classList.toggle("bg-green-700", i === currentIndex);
+            dot.classList.toggle("bg-green-300", i !== currentIndex);
+          });
+        };
+
+        // Create dots
+        dotsContainer.innerHTML = "";
+        carouselImages.forEach((_, i) => {
+          const dot = document.createElement("button");
+          dot.className =
+            "dot w-3 h-3 rounded-full bg-green-300 hover:bg-green-500 transition";
+          dot.setAttribute("aria-label", `Show slide ${i + 1}`);
+          dot.addEventListener("click", () => {
+            currentIndex = i;
+            updateCarousel();
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener("click", () => {
+          currentIndex =
+            (currentIndex - 1 + carouselImages.length) %
+            carouselImages.length;
+          updateCarousel();
+        });
+        nextBtn.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % carouselImages.length;
+          updateCarousel();
+        });
+
+        // Autoplay functionality
+        const startAutoplay = () => {
+          autoplayInterval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % carouselImages.length;
+            updateCarousel();
+          }, 6000);
+        };
+
+        carouselElement.addEventListener("mouseenter", () =>
+          clearInterval(autoplayInterval)
+        );
+        carouselElement.addEventListener("mouseleave", () => startAutoplay());
+
+        // Initialize display and start autoplay
+        updateCarousel();
+        startAutoplay();
+      }
+
+      document.querySelectorAll(".carousel-app").forEach((carousel) => {
+        initializeCarousel(carousel);
+      });
+
+      // Reveal animation on scroll (corrected logic)
+      function revealOnScroll() {
+        document
+          .querySelectorAll(".fade-in-up, .card-hover")
+          .forEach((el) => {
+            if (el.classList.contains("fade-in-up")) return; // Check if the animation class is already added
+
+            if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+              el.classList.add("fade-in-up");
+            }
+          });
+      }
+
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("resize", revealOnScroll); // Also check on resize
+      revealOnScroll(); // Initial check on page load
+    });
+  </script>
 </body>
 
 </html>
